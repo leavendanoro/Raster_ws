@@ -39,5 +39,4 @@ Describa los resultados obtenidos. En el caso de anti-aliasing describir las té
 
 ## Entrega
 
-* Modo de entrega: [Fork](https://help.github.com/articles/fork-a-repo/) la plantilla en las cuentas de los integrantes.
-* Plazo: 30/9/18 a las 24h.
+* Plazo: 7/10/18 a las 24h.
