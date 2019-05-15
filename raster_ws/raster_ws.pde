@@ -1,11 +1,11 @@
-import frames.timing.*;
-import frames.primitives.*;
-import frames.core.*;
-import frames.processing.*;
+import nub.timing.*;
+import nub.primitives.*;
+import nub.core.*;
+import nub.processing.*;
 
-// 1. Frames' objects
+// 1. Nub objects
 Scene scene;
-Frame frame;
+Node node;
 Vector v1, v2, v3;
 // timing
 TimingTask spinningTask;
@@ -21,20 +21,25 @@ boolean debug = true;
 // 3. Use FX2D, JAVA2D, P2D or P3D
 String renderer = P3D;
 
+// 4. Window dimension
+int dim = 10;
+
+void settings() {
+  size(int(pow(2, dim)), int(pow(2, dim)), renderer);
+}
+
 void setup() {
-  //use 2^n to change the dimensions
-  size(1024, 1024, renderer);
   scene = new Scene(this);
   if (scene.is3D())
     scene.setType(Scene.Type.ORTHOGRAPHIC);
   scene.setRadius(width/2);
-  scene.fitBallInterpolation();
+  scene.fit(1);
 
   // not really needed here but create a spinning task
-  // just to illustrate some frames.timing features. For
+  // just to illustrate some nub.timing features. For
   // example, to see how 3D spinning from the horizon
   // (no bias from above nor from below) induces movement
-  // on the frame instance (the one used to represent
+  // on the node instance (the one used to represent
   // onscreen pixels): upwards or backwards (or to the left
   // vs to the right)?
   // Press ' ' to play it
@@ -49,8 +54,8 @@ void setup() {
   };
   scene.registerTask(spinningTask);
 
-  frame = new Frame();
-  frame.setScaling(width/pow(2, n));
+  node = new Node();
+  node.setScaling(width/pow(2, n));
 
   // init the triangle that's gonna be rasterized
   randomizeTriangle();
@@ -65,21 +70,21 @@ void draw() {
     drawTriangleHint();
   pushMatrix();
   pushStyle();
-  scene.applyTransformation(frame);
+  scene.applyTransformation(node);
   triangleRaster();
   popStyle();
   popMatrix();
 }
 
 // Implement this function to rasterize the triangle.
-// Coordinates are given in the frame system which has a dimension of 2^n
+// Coordinates are given in the node system which has a dimension of 2^n
 void triangleRaster() {
-  // frame.location converts points from world to frame
+  // node.location converts points from world to node
   // here we convert v1 to illustrate the idea
   if (debug) {
     pushStyle();
     stroke(255, 255, 0, 125);
-    point(round(frame.location(v1).x()), round(frame.location(v1).y()));
+    point(round(node.location(v1).x()), round(node.location(v1).y()));
     popStyle();
   }
 }
@@ -115,11 +120,11 @@ void keyPressed() {
     debug = !debug;
   if (key == '+') {
     n = n < 7 ? n+1 : 2;
-    frame.setScaling(width/pow( 2, n));
+    node.setScaling(width/pow( 2, n));
   }
   if (key == '-') {
     n = n >2 ? n-1 : 7;
-    frame.setScaling(width/pow( 2, n));
+    node.setScaling(width/pow( 2, n));
   }
   if (key == 'r')
     randomizeTriangle();
