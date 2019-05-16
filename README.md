@@ -35,4 +35,4 @@ Describa los resultados obtenidos. En el caso de anti-aliasing describir las té
 
 ## Entrega
 
-* Plazo: 26/5/19 a las 24h.
+* Plazo: 2/6/19 a las 24h.
