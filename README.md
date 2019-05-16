@@ -8,7 +8,7 @@ Comprender algunos aspectos fundamentales del paradigma de rasterización.
 
 Emplee coordenadas baricéntricas para:
 
-1. Rasterizar un triángulo; y,
+1. Rasterizar un triángulo.
 2. Sombrear su superficie a partir de los colores de sus vértices.
 3. (opcional para grupos menores de dos) Implementar un [algoritmo de anti-aliasing](https://www.scratchapixel.com/lessons/3d-basic-rendering/rasterization-practical-implementation/rasterization-practical-implementation) para sus aristas.
 
