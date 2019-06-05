@@ -23,9 +23,10 @@ Implemente la función ```triangleRaster()``` del sketch adjunto para tal efecto
 
 Complete la tabla:
 
-| Integrante | github nick |
-|------------|-------------|
-|            |             |
+|    Integrante    |  github nick |
+|------------------|--------------|
+|Leonardo Avendaño | leavendanoro |
+|Raul Coral        |  darkwilde95 |
 
 ## Discusión
 
